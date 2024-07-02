@@ -1,0 +1,92 @@
+<html style="width:100%;height:100%; margin:0; padding:0">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<title>WeatherClock</title> 
+
+</head> 
+<body> 
+    <div class="CssSolarDateWeek" id="IdSolarDateWeek"></div> 
+    <div class="CssLunarDate" id="IdLunarDate"></div> 
+    <div class="CssTime" id="IdTime"></div> 
+    <img class="Cssicon" id="IdIcon"></img>
+    <div class="CssProvinces">浙江</div><!--自由修改成你所在的省份-->
+    <div class="CssCity">杭州</div><!--自由修改成你所在的城市-->
+    <div class="CssText" id="IdText"></div>
+    <div class="CssTemp" id="IdTemp"></div>
+    <div class="CssWind" id="IdWind"></div>
+    <div class="CssFeelsLike" id="IdFeelsLike"></div>
+    <div class="CssFeelsLike_01">体感温度</div>
+    <div class="CssHumidity" id="IdHumidity"></div>
+    <div class="CssHumidity_01">相对湿度</div>
+    <div class="CssWindScale" id="IdWindScale"></div>
+    <div class="CssWindScale_01">风力等级</div>
+    <div class="CssPressure" id="IdPressure"></div>
+    <div class="CssPressure_01">大气压强</div>
+    <div class="CssNowPoetry" id="IdNowPoetry"></div>
+<link rel="stylesheet" type="text/css" href="css/Style.css"/> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunar-javascript/1.6.12/lunar.min.js"></script>
+<script>
+//时间部分
+    function SolarLunarTime(){
+	    var NowDateStamp = new Date().getTime();//将系统时间装换成时间戳
+	    var JudgmentUTC = new Date().getTimezoneOffset();//获取系统时间与GMT时间的差值
+		switch(JudgmentUTC){
+		    case 0:NowDate=NowDateStamp+28800000;//从GMT时间戳转成CST时间戳
+		    break;
+			case -480:NowDate=NowDateStamp;
+		    break;
+		}
+	    var NowDate = new Date(NowDate);//使用处理后的时间戳设置变量NowDate
+//我的kindle不知因什么原因系统时间一直时GMT时间，想尽所有办法都无法更改，只能通过JudgmentUTC及switch获得CST时间。
+//阳历及星期		
+	    var SolarDate = Solar.fromDate(NowDate);
+	        document.getElementById("IdSolarDateWeek").innerHTML=((SolarDate.getYear())+"年"+(SolarDate.getMonth()>9?SolarDate.getMonth():"0"+SolarDate.getMonth())+"月"+(SolarDate.getDay()>9?SolarDate.getDay():"0"+SolarDate.getDay())+"日 • 星期"+(SolarDate.getWeekInChinese()));
+//阴历
+	    var LunarDate = Lunar.fromDate(NowDate);
+	        document.getElementById("IdLunarDate").innerHTML=LunarDate.getYearInGanZhi()+" • "+LunarDate.getYearShengXiao()+"年 • "+LunarDate.getMonthInChinese()+"月"+LunarDate.getDayInChinese();
+//时间
+		var Hours = (NowDate.getHours())>9?(NowDate.getHours()):"0"+(NowDate.getHours());
+		var Minutes = (NowDate.getMinutes())>9?(NowDate.getMinutes()):"0"+(NowDate.getMinutes());
+		var Seconds = (NowDate.getSeconds())>9?(NowDate.getSeconds()):"0"+(NowDate.getSeconds());
+			document.getElementById("IdTime").innerHTML=Hours+":"+Minutes;
+        t=setTimeout(function(){SolarLunarTime()},5000);//500毫秒(0.5秒)刷新一次
+	}
+ 
+//天气部分
+    function TodayWeather(){
+        var NowWeather = new XMLHttpRequest();
+            NowWeather.open("GET","https://devapi.qweather.com/v7/weather/now?location=101210101&key=7e8250e82da2448ea9aa982b476dd72d",true);//使用和风天气API，把“城市代码”换成你需要显示天气预报的城市代码，把APIKEY换成你自己的KEY。具体方法参考和风天气开发文档。
+            NowWeather.onreadystatechange = function(){
+                if (NowWeather.readyState == 4 && NowWeather.status == 200) {
+                    var NowWeatherData = JSON.parse(NowWeather.responseText);
+            document.getElementById("IdIcon").src = './icons/'+NowWeatherData.now.icon+'.svg';//天气图标
+            document.getElementById("IdText").innerHTML = NowWeatherData.now.text;//天气描述
+            document.getElementById("IdTemp").innerHTML = NowWeatherData.now.temp+'°';//当前温度
+            document.getElementById("IdWind").innerHTML = NowWeatherData.now.windDir+'•'+NowWeatherData.now.windSpeed+'km/h';//风向及风速
+            document.getElementById("IdFeelsLike").innerHTML = NowWeatherData.now.feelsLike+'°';//体感温度
+            document.getElementById("IdHumidity").innerHTML = NowWeatherData.now.humidity+'%';//相对湿度
+            document.getElementById("IdWindScale").innerHTML = NowWeatherData.now.windScale+'级';//风力等级
+            document.getElementById("IdPressure").innerHTML = NowWeatherData.now.pressure+'Hpa';//大气压强
+                }
+            };
+        NowWeather.send();
+        t=setTimeout(function(){TodayWeather()},3600000);//3600000毫秒(1小时)刷新一次
+    }
+ 
+//名言部分
+    function NowPoetry(){
+        var Poetry = new XMLHttpRequest();
+            Poetry.open("GET","https://v1.hitokoto.cn/",true);
+            Poetry.onreadystatechange = function(){
+                if (Poetry.readyState == 4 && Poetry.status == 200) {
+                    var PoetryDate = JSON.parse(Poetry.responseText);
+            document.getElementById("IdNowPoetry").innerHTML = "∮ "+PoetryDate.hitokoto; //一言
+                }
+            }
+        Poetry.send();
+        t=setTimeout(function(){NowPoetry()},3600000);//3600000毫秒(1小时)刷新一次
+    }
+    window.onload =function() { SolarLunarTime(); TodayWeather(); NowPoetry()}
+</script>   
+</body>
+</html>

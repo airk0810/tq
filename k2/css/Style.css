@@ -1,0 +1,245 @@
+@font-face {font-family:"DSD";src: url(./fonts/DS-Digital.TTF);}/*LED字体*/
+@font-face {font-family:"Deng";src: url(./fonts/Deng.ttf);}/*等线常规*/
+@font-face {font-family:"Dengb";src: url(./fonts/Dengb.ttf);}/*等线粗体*/
+@font-face {font-family:"Dengl";src: url(./fonts/Dengl.ttf);}/*等线细体*/
+ 
+/*阳历及星期*/
+.CssSolarDateWeek{
+    width:980px;/*宽*/
+    height:100px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:0px;/*定位类型：距左，配合position*/
+    top:30px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:80px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:100px;/*与height数值一致文字即可垂直居中*/
+}
+ 
+/*阴历*/
+.CssLunarDate{
+    width:980px;/*宽*/
+    height:80px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:0px;/*定位类型：距左，配合position*/
+    top:150px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:60px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:80px;/*与height数值一致文字即可垂直居中*/   
+}
+ 
+/*时间*/
+.CssTime{
+    width:980px;/*宽*/
+    height:300px;/*高*/
+    border-style:none none solid none;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:0px;/*定位类型：距左，配合position*/
+    top:230px;/*定位类型：距顶，配合position*/
+    font-family:"DSD";/*字体：LED字体*/
+    font-size:280px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:300px;/*与height数值一致文字即可垂直居中*/   
+}
+ 
+/*天气图标*/
+.Cssicon{
+    width:150px;/*宽*/
+    height:150px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:40px;/*定位类型：距左，配合position*/
+    top:600px;/*定位类型：距顶，配合position*/
+    line-height:150px;/*与height数值一致文字即可垂直居中*/    
+}
+ 
+/*省份*/
+.CssProvinces{
+    width:150;/*宽*/
+    height:80px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:210px;/*定位类型：距左，配合position*/
+    top:600px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:30px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/  
+}
+ 
+/*城市*/
+.CssCity{
+    width:150;/*宽*/
+    height:80px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:210px;/*定位类型：距左，配合position*/
+    top:670px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:30px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:80px;/*与height数值一致文字即可垂直居中*/      
+}
+ 
+/*温度*/
+.CssTemp{
+    width:300;/*宽*/
+    height:190px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:380px;/*定位类型：距左，配合position*/
+    top:560px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:200px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:190px;/*与height数值一致文字即可垂直居中*/    
+}
+ 
+/*天气描述*/
+.CssText{
+    width:240;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:700px;/*定位类型：距左，配合position*/
+    top:600px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:30px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/       
+}
+ 
+/*风向及风速*/
+.CssWind{
+    width:240;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:700px;/*定位类型：距左，配合position*/
+    top:675px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:30px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/        
+}
+ 
+/*体感温度*/
+.CssFeelsLike{
+    width:245;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:0px;/*定位类型：距左，配合position*/
+    top:780px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:40px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/  
+}
+.CssFeelsLike_01{
+    width:245;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:0px;/*定位类型：距左，配合position*/
+    top:860px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线细体*/
+    font-size:40px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/    
+}
+ 
+/*相对湿度*/
+.CssHumidity{
+    width:245;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:245px;/*定位类型：距左，配合position*/
+    top:780px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:40px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/  
+}
+.CssHumidity_01{
+    width:245;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:245px;/*定位类型：距左，配合position*/
+    top:860px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线细体*/
+    font-size:40px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/    
+}
+ 
+/*风力等级*/
+.CssWindScale{
+    width:245;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:490px;/*定位类型：距左，配合position*/
+    top:780px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:40px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/  
+}
+.CssWindScale_01{
+    width:245;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:490px;/*定位类型：距左，配合position*/
+    top:860px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线细体*/
+    font-size:40px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/    
+}
+ 
+/*大气压强*/
+.CssPressure{
+    width:245;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:735px;/*定位类型：距左，配合position*/
+    top:780px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:40px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/  
+}
+.CssPressure_01{
+    width:245;/*宽*/
+    height:75px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:735px;/*定位类型：距左，配合position*/
+    top:860px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线细体*/
+    font-size:40px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:75px;/*与height数值一致文字即可垂直居中*/    
+}
+ 
+/*一言*/
+.CssNowPoetry{
+    width:980px;/*宽*/
+    height:140px;/*高*/
+    /*border-style:solid solid solid solid;/*边框*/
+    position:absolute;/*定位类型：脱离*/
+    left:0px;/*定位类型：距左，配合position*/
+    top:930px;/*定位类型：距顶，配合position*/
+    font-family:"Dengb";/*字体：等线粗体*/
+    font-size:30px;/*文字大小*/
+    text-align:center;/*文字水平居中*/
+    line-height:160px;/*与height数值一致文字即可垂直居中*/   
+}
